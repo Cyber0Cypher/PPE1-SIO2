@@ -9,7 +9,7 @@
 		$req = $bdd->prepare('UPDATE utilisateur SET confirme = :confirme WHERE id_utilisateur = :id_utilisateur');
 		$req->execute(array('confirme' => true, 'id_utilisateur' => $id_utilisateur));
 
-		header("location: ./admin.php");
+		header("location: ./demande_inscription.php");
     	exit();
 	}
 ?>

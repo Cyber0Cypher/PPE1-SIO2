@@ -22,10 +22,10 @@
 				$recherche->execute(array(
 					'confirme' => false));
 
-				echo '<form method="POST" action="valider_inscription.php">';
+
 				while($listeAttente = $recherche->fetch())
 				{
-					echo '<form method="POST" action="admin.php">';
+					echo '<form method="POST" action="valider_inscription.php">';
 					echo $listeAttente['prenom_utilisateur'].' '.$listeAttente['nom_utilisateur'].' -> '.$listeAttente['mail_utilisateur'].' <input type="hidden" name="id_utilisateur" value="'.$listeAttente['id_utilisateur'].'"><input type="submit" name="confirmer" value="Accepter">';
 					echo '</form>';
 					echo '<br>';
