@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Client :  127.0.0.1
--- Généré le :  Lun 03 Octobre 2016 à 14:24
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
 -- Base de données :  `parking`
 --
@@ -25,6 +7,9 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `place`
 --
+DROP DATABASE parking;
+CREATE DATABASE parking;
+USE parking;
 
 CREATE TABLE IF NOT EXISTS `place` (
   `id_place` int(11) NOT NULL AUTO_INCREMENT,
