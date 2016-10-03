@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Espace Utilisateur</title>
+		<meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="EspaceUser.css" />
+	</head>
+	<body>
+		<div class="title">
+			<h1>Bienvenue sur votre espace</h1>
+		</div>
+		
+		<div class="main">
+			<div class="left">
+				<p>Numéro de place attribué :</p><br>
+				<p>Place précedenment attribuées :</p><br>
+			</div>
+			<div class="right">
+				<p>Votre rang dans la file d'attente :</p><br>
+				<div style="border: 1px solid black; padding : 15px; ">
+					<form method = "post" action ="">
+						<p>Ancien mot de passe <input type="text" name="OldPwd" required="required" /></p><br>
+						<p>Nouveau mot de passe <input type="text" name="NewPwd" required="required" /></p><br>
+						<p>Confirmation du mot de passe <input type="text" name="TestPwd" required="required"/></p><br>
+						<p><input style="margin-left: calc(50% - 50px); width:100px;"type="submit" value="Valider"></p>
+					</form>
+				</div>
+			</div>
+			<div id=outer> 
+				<div id=inner>
+				<p>Reservation</p>
+				</div> 
+			</div>
+		</div>
+		
+	</body>
+</html>
