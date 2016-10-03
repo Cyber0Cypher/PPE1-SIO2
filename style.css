@@ -1,14 +1,10 @@
-div
-{
-	display: inline-block;
-}
-
 body
 {
 	margin:0;
 	padding: 0;
 	font-family: Verdana;
 	font-size:15px;
+	background-color: #585e70;
 }
 
 #inscription
@@ -19,7 +15,7 @@ body
 	float : left;
 	width: 500px;
 	height: 400px;
-	background-color: lightgrey;
+	background-color: #bcbfca;
 	border: 1px solid black;
 }
 
@@ -32,13 +28,34 @@ body
 	border: 1px solid black;
 	width: 500px;
 	height: 400px;
-	background-color: lightgrey;
+	background-color: #bcbfca;
 }
 
 #main
 {
 	border: 1px solid black;
-	background-color: lightgrey;
+	background-color: #bcbfca;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 20px;
+	height : 450px;
+	width : 1200px;
+}
+
+#left
+{
+	float: left;
+	display : inline-block;
+	height: auto;
+	width: 600px;
+}
+
+#password
+{
+	display: inline-block;
+	border : 1px solid black;
+	padding : 20px;
+	float : right;
 }
 
 input
@@ -47,4 +64,37 @@ input
 	font-size:15px;
 	float:right;
 	height:25px;
+}
+
+.center
+{
+	text-align: center;
+}
+
+a
+{
+	text-decoration: none;
+	color: none;
+}
+
+.bouton
+{
+	padding:7px;
+	border-radius: 4px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	border:1px solid grey;
+}
+
+.tableau
+{
+	width : 100%;
+}
+
+.tableau, th, td
+{
+	border: 1px solid black;
+	border-collapse : collapse;
 }

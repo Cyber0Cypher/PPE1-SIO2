@@ -1,5 +1,9 @@
 <?php
+	session_start();
 	include('connexion.php');
+
+/*	if(isset($_SESSION['mail']) AND isset($_SESSION['mdp']))
+	{*/
 ?>
 
 <!DOCTYPE html>
@@ -45,10 +49,21 @@
 			<label>Mot de passe</label>
 			<input type="password" name="mdp" required="required"><br/>
 			<?php
-			if (isset($_GET['login']) AND $_GET['login']=="ko"){ ?>
-			<p style="color:red">Mauvais mail ou mdp !</p><?php } ?><br/><br/>
+				if (isset($_GET['login']) AND $_GET['login']=="ko")
+				{
+					echo'<p style="color:red">Mauvais mail ou mdp !</p>';
+				} 
+				if (isset($_GET['confirme']) AND $_GET['confirme']=="ko")
+				{
+					echo'<p style="color:red">L\'administrateur n\'a pas encore accepté votre inscription</p>';
+				}
+			?><br/><br/>
 			<input style="margin-right:calc(50% - 75px);width:150px; height : 30px" type="submit" value="Connexion">
 		</form>
 	</div>
 </body>
 </html>
+
+<?php 
+	/*}*/
+?>

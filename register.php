@@ -12,16 +12,17 @@
 		'mail_utilisateur' => $mail_utilisateur));
 	$verif = $recherche->fetch();
 
-	if ($mdp_utilisateur == $cmdp_utilisateur AND !$verif)
+	if ($mdp_utilisateur == $cmdp_utilisateur)
 	{
-		$req = $bdd->prepare('INSERT INTO utilisateur VALUES (:id_utilisateur,:nom_utilisateur,:prenom_utilisateur,:mdp_utilisateur,:mail_utilisateur,:admin)');
+		$req = $bdd->prepare('INSERT INTO utilisateur VALUES (:id_utilisateur,:nom_utilisateur,:prenom_utilisateur,:mdp_utilisateur,:mail_utilisateur,:admin,:confirme)');
 		$req->execute(array(
 			'id_utilisateur' => NULL,
 			'nom_utilisateur' => $nom_utilisateur,
 			'prenom_utilisateur' => $prenom_utilisateur,
 			'mdp_utilisateur' => $mdp_utilisateur,
 			'mail_utilisateur' => $mail_utilisateur,
-			'admin' => false));
+			'admin' => false,
+			'confirme' => false));
 
 		header("location: ./index.php?register=ok");
         exit();
