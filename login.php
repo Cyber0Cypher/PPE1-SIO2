@@ -3,12 +3,11 @@ session_start();
 include('connexion.php');
 
 $mail = $_POST['mail'];
-$mdp = $_POST['mdp'];
+$mdp = sha1($_POST['mdp']);
 
-$_SESSION['mail'] = $mail;
-$_SESSION['mdp'] = $mdp;
-
-$requete = $bdd->query('SELECT * FROM utilisateur WHERE mail_utilisateur= "'.$mail.'" AND mdp_utilisateur="'.$mdp.'"');
+$requete = $bdd->prepare('SELECT * FROM utilisateur WHERE mail_utilisateur= :mail AND mdp_utilisateur= :mdp');
+$requete->execute(array('mail' => $mail, 
+						'mdp' => $mdp));
 $login = $requete->fetch();
 $admin = $login['admin'];
 $confirme = $login['confirme'];
@@ -27,12 +26,16 @@ if(!$confirme)
 
 if($login AND $admin)
 {
+	$_SESSION['mail'] = $mail;
+	$_SESSION['mdp'] = $mdp;
 	header("location: ./admin/admin.php");
         exit();
 }
 
 if($login AND !$admin AND $confirme)
 {
+	$_SESSION['mail'] = $mail;
+	$_SESSION['mdp'] = $mdp;
 	header("location: ./utilisateur.php");
         exit();
 }
