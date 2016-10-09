@@ -30,6 +30,8 @@
 			<input type="text" name="prenom" required="required"><br/><br/>
 			<label>Adresse mail</label>
 			<input type="mail" name="mail" required="required"><br/><br/>
+			<label>Mot secret <span style="font-size: 11px">(en cas de mdp oublié)</span></label>
+			<input type="text" name="secret" required="required"><br/><br/>
 			<label>Mot de passe</label>
 			<input type="password" name="mdp" required="required"><br/><br/>
 			<label>Confirmation de mot de passe</label>
@@ -47,11 +49,12 @@
 			<label>Adresse mail</label>
 			<input type="mail" name="mail" required="required"><br/><br/>
 			<label>Mot de passe</label>
-			<input type="password" name="mdp" required="required"><br/>
+			<input type="password" name="mdp" required="required"><br/></br>
+			<a href="mdp_oublie.php" style="font-size: 12px">Mot de passe oublié ?</a>
 			<?php
 				if (isset($_GET['login']) AND $_GET['login']=="ko")
 				{
-					echo'<p style="color:red">Mauvais mail ou mdp !</p>';
+					echo'<p style="color:red">Adresse mail ou mot de passe incorrect !</p>';
 				} 
 				if (isset($_GET['confirme']) AND $_GET['confirme']=="ko")
 				{

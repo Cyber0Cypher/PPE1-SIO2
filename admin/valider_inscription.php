@@ -1,4 +1,14 @@
 <?php
+<?php
+session_start();
+
+if(!isset($_SESSION['mail']) OR !isset($_SESSION['mdp']))
+{
+  header("location: ../index.php");
+  exit();
+}
+else
+{
 	include('../connexion.php');
 	
 	/*Ajout de l'utilisateur après confirmation par l'administrateur*/
@@ -12,4 +22,5 @@
 		header("location: ./demande_inscription.php");
     	exit();
 	}
+}
 ?>

@@ -1,5 +1,15 @@
 <?php
-	include('../connexion.php');
+session_start();
+
+if(!isset($_SESSION['mail']) OR !isset($_SESSION['mdp']))
+{
+  header("location: ../index.php");
+  exit();
+}
+else
+{
+
+include('../connexion.php');
 ?>
 
 <html>
@@ -13,7 +23,7 @@
 			<h1 style="text-align:center;">Espace administrateur</h1>
 		</header>
 		<div id="main">
-			<a class="bouton" href="admin.php">Revenir à la page d'accueil</a>
+			<center><a class="bouton" href="admin.php">Revenir à la page d'accueil</a></center>
 			<?php
 				/*Liste des demandes d'inscription*/
 
@@ -22,19 +32,21 @@
 				$recherche->execute(array(
 					'confirme' => true));
 
-				echo '<table class="tableau">';
-				echo '<tr>';
-					echo '<th>Prénom</th>';
-					echo '<th>Nom</th>';
-					echo '<th>Mail</th>';
-				echo '</tr>';
+				echo '<table class="tableau">
+						<tr>
+							<th>Prénom</th>
+							<th>Nom</th>
+							<th>Mail</th>
+							<th>Désinscrire</th>
+						</tr>';
 				while($liste = $recherche->fetch())
 				{
-					echo '<tr>';
-						echo '<td>'.$liste['prenom_utilisateur'].'</td>';
-						echo '<td>'.$liste['nom_utilisateur'].'</td>';
-						echo '<td>'.$liste['mail_utilisateur'].'</td>';
-					echo '</tr>';
+					echo '<tr>
+							<td>'.$liste['prenom_utilisateur'].'</td>
+							<td>'.$liste['nom_utilisateur'].'</td>
+							<td>'.$liste['mail_utilisateur'].'</td>
+							<td><form action="refuser_inscription.php" method="POST"><input type="hidden" name="id_utilisateur" value="'.$liste['id_utilisateur'].'"><input type="submit" name="refuser" value="Désinscrire"></form></td>
+						</tr>';
 				}
 				echo '</table>';
 			?>
@@ -42,3 +54,4 @@
 		<br><center><a class="bouton" style="background-color: #bcbfca" href="../deconnexion.php">Déconnexion</a></center>
 	</body>
 </html>
+<?php } ?>

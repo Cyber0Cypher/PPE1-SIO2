@@ -50,14 +50,16 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `mdp_utilisateur`, `mail_utilisateur`, `admin`, `confirme`) VALUES
-(1, 'Bouillennec', 'Valentin', '4657', 'val.bouillennec@gmail.com', 1, 1),
-(2, 'nom1', 'prenom1', '0000', 'utilisateur', 0, 1),
-(3, 'john', 'doe', '0000', 'john.doe@mail.com', 0, 0),
-(4, 'Obama', 'Barack', '0000', 'barack.obama@president.us', 0, 0),
-(5, 'wayne', 'bruce', '0000', 'batmail@mail.com', 0, 0),
-(6, 'Stark', 'Tony', '0000', 'tony.stark@gmail.com', 0, 0);
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `mdp_utilisateur`, `mail_utilisateur`, `secret_utilisateur`, `admin`, `confirme`) VALUES
+(1, 'Bouillennec', 'Valentin', '39dfa55283318d31afe5a3ff4a0e3253e2045e43', 'val.bouillennec@gmail.com', 'secret', 1, 1),
+(2, 'nom1', 'prenom1', '39dfa55283318d31afe5a3ff4a0e3253e2045e43', 'utilisateur', 'secret', 0, 1),
+(3, 'john', 'doe', '39dfa55283318d31afe5a3ff4a0e3253e2045e43', 'john.doe@mail.com', 'secret', 0, 0),
+(4, 'Obama', 'Barack', '39dfa55283318d31afe5a3ff4a0e3253e2045e43', 'barack.obama@president.us', 'secret', 0, 0),
+(5, 'wayne', 'bruce', '39dfa55283318d31afe5a3ff4a0e3253e2045e43', 'batmail@mail.com', 'secret', 0, 0),
+(6, 'Stark', 'Tony', '39dfa55283318d31afe5a3ff4a0e3253e2045e43', 'tony.stark@gmail.com', 'secret', 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO place 

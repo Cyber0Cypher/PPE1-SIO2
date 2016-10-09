@@ -13,7 +13,7 @@
 			<h1 style="text-align:center;">Espace administrateur</h1>
 		</header>
 		<div id="main">
-			<a class="bouton" href="admin.php">Revenir à la page d'accueil</a>
+			<center><a class="bouton" href="admin.php">Revenir à la page d'accueil</a></center>
 			<?php
 				/*Liste des demandes d'inscription*/
 
@@ -21,8 +21,12 @@
 				$recherche = $bdd->prepare('SELECT * FROM utilisateur WHERE confirme = :confirme');
 				$recherche->execute(array(
 					'confirme' => false));
+				$nbDemandes = $recherche->rowCount();
 
-
+				if($nbDemandes == 0)
+				{
+					echo 'Aucune demande d\'inscription';
+				}
 				while($listeAttente = $recherche->fetch())
 				{
 					echo '<form method="POST" action="valider_inscription.php">';
