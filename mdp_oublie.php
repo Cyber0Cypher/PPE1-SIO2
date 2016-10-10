@@ -1,14 +1,3 @@
-<?php
-	session_start();
-
-	if(!isset($_SESSION['mail']) OR !isset($_SESSION['mdp']))
-	{
-	  header("location: ./index.php");
-	  exit();
-	}
-	else
-	{
-?>
 <html>
 	<head>
 		<title>Mot de passe oublié</title>
@@ -101,4 +90,3 @@
 		</div>
 	</body>
 </html>
-<?php } ?>

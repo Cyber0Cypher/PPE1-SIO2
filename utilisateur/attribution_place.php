@@ -18,18 +18,29 @@ $id_utilisateur = $_SESSION['id'];
 $place = $bdd->query('SELECT * FROM place');
 $nb_place = $place->rowCount();
 
+/*--Interrogation de la base pour savoir si il y a des places libres--*/
+$libre = $bdd->query('SELECT * FROM place WHERE id_reservation = 0 AND id_utilisateur = 0');
+$libre = $libre->rowCount();
 
-do
+if($libre<=0)
 {
-	$id_place = rand(1,$nb_place);
+	header("location: utilisateur.php?libre=0");
+	exit();
+}
+else
+{
+	do
+	{
+		$id_place = rand(1,$nb_place);
 
-	$reservation = $bdd->prepare('SELECT * FROM reservation WHERE id_place = :id_place');
-	$reservation->execute(array(
-		'id_place' => $id_place));
-	$reservation = $reservation->fetch();
-}while ($reservation);
+		$place = $bdd->prepare('SELECT * FROM place WHERE id_place = :id_place AND id_reservation != 0 AND id_utilisateur != 0');
+		$place->execute(array(
+			'id_place' => $id_place));
+		$place_non_libre = $place->fetch();
+	}while ($place_non_libre);
+}
 
-$req = $bdd->prepare('INSERT INTO reservation VALUES (:id_reservation,NOW(),NOW(),:id_place,:id_utilisateur)');
+$req = $bdd->prepare('INSERT INTO reservation VALUES (:id_reservation,NOW(),DATE_ADD(NOW(), INTERVAL 2 DAY),:id_place,:id_utilisateur)');
 $req->execute(array(
 	'id_reservation' => NULL,
 	'id_place' => $id_place,

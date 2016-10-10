@@ -65,7 +65,6 @@
 						));
 
 					echo 'Votre mot de passe à été changé avec succès !<br><br>';
-					echo '<a class="bouton" href="admin/admin.php">Revenir à la page d\'accueil</a>';
 				}
 				if(!$verif OR $_POST['new_mdp'] != $_POST['new_mdp2'])
 				{

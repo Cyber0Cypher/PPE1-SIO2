@@ -13,7 +13,7 @@
 		'mail_utilisateur' => $mail_utilisateur));
 	$verif = $recherche->fetch();
 
-	if ($mdp_utilisateur == $cmdp_utilisateur)
+	if ($mdp_utilisateur == $cmdp_utilisateur AND !$verif)
 	{
 		$req = $bdd->prepare('INSERT INTO utilisateur VALUES (:id_utilisateur,:nom_utilisateur,:prenom_utilisateur,:mdp_utilisateur,:mail_utilisateur,:secret_utilisateur,:admin,:confirme)');
 		$req->execute(array(

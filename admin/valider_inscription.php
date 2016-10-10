@@ -1,5 +1,4 @@
 <?php
-<?php
 session_start();
 
 if(!isset($_SESSION['mail']) OR !isset($_SESSION['mdp']))
